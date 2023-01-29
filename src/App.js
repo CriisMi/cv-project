@@ -13,7 +13,7 @@ class App extends Component {
     };
 
     this.editInfo = this.editInfo.bind(this);
-    this.submitInfo = this.submitInfo.bind(this);
+    this.getData = this.getData.bind(this);
   }
 
   editInfo() {
@@ -22,11 +22,13 @@ class App extends Component {
     });
   }
 
-  submitInfo() {
+  getData = (data) => {
     this.setState({
       current: { editing: 0, submitted: 1 },
+      data: data,
     });
-  }
+    console.log(this.state);
+  };
 
   render() {
     return (
@@ -37,8 +39,7 @@ class App extends Component {
           ) : null}
           {this.state.current.editing ? (
             <div>
-              <Form />
-              <button onClick={this.submitInfo}>Submit</button>
+              <Form onSubmit={this.getData} />
             </div>
           ) : null}
         </div>
