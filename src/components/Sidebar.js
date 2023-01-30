@@ -6,6 +6,12 @@ class Sidebar extends Component {
   }
 
   render() {
+    const skillsList = this.props.skills.map((skill) => (
+      <li key={skill}>{skill}</li>
+    ));
+    const languagesList = this.props.languages.map((skill) => (
+      <li key={skill}>{skill}</li>
+    ));
     return (
       <div>
         <ul className="title">
@@ -20,6 +26,9 @@ class Sidebar extends Component {
         </ul>
 
         <div className="header">Skills</div>
+        <ul>{skillsList}</ul>
+        <div className="header">Languages</div>
+        <ul>{languagesList}</ul>
       </div>
     );
   }

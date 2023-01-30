@@ -17,6 +17,8 @@ class App extends Component {
         phone: "+123456789",
         mail: "mary@smith.com",
         social: "linkedin.com/marysmith",
+        skills: ["html", "css", "js", "react"],
+        languages: ["english", "italian"],
       },
     };
 
