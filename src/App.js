@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./App.css";
 import Form from "./components/Form";
+import Sidebar from "./components/Sidebar";
 
 class App extends Component {
   constructor() {
@@ -49,10 +50,7 @@ class App extends Component {
             </div>
           ) : null}
         </div>
-        <div className="sidebar"></div>
-        <div className="info">
-          <div className="sectionTitle">Personal Info</div>
-        </div>
+        <Sidebar {...this.state.data} />
       </div>
     );
   }
