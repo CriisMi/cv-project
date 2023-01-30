@@ -6,15 +6,18 @@ class Form extends Component {
     super(props);
 
     this.state = {
-      name: "",
-      occupation: "",
-      phone: "",
-      mail: "",
-      social: "",
+      ...props,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange = (e) => {
+    const value = e.target.value;
+    this.setState({ ...this.state, [e.target.name]: value });
+    e.target.placeholder = value;
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -27,26 +30,47 @@ class Form extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Full name:
-            <input type="text" name="name" placeholder="Mary Smith" />
+            <input
+              type="text"
+              name="name"
+              placeholder={this.props.name}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Occupation:
-            <input type="text" name="occupation" placeholder="Architect" />
+            <input
+              type="text"
+              name="occupation"
+              placeholder={this.props.occupation}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Phone number:
-            <input type="tel" name="phone" placeholder="+123456789" />
+            <input
+              type="tel"
+              name="phone"
+              placeholder={this.props.phone}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             E-mail:
-            <input type="e-mail" name="mail" placeholder="mary@smith.com" />
+            <input
+              type="e-mail"
+              name="mail"
+              placeholder={this.props.mail}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Social URL:
             <input
               type="URL"
               name="social"
-              placeholder="linkedin.com/marysmith"
+              placeholder={this.props.social}
+              onChange={this.handleChange}
             />
           </label>
 

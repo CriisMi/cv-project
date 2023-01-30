@@ -10,6 +10,13 @@ class App extends Component {
         editing: 1,
         submitted: 0,
       },
+      data: {
+        name: "Mary Smith",
+        occupation: "Architect",
+        phone: "+123456789",
+        mail: "mary@smith.com",
+        social: "linkedin.com/marysmith",
+      },
     };
 
     this.editInfo = this.editInfo.bind(this);
@@ -27,7 +34,6 @@ class App extends Component {
       current: { editing: 0, submitted: 1 },
       data: data,
     });
-    console.log(this.state);
   };
 
   render() {
@@ -39,7 +45,7 @@ class App extends Component {
           ) : null}
           {this.state.current.editing ? (
             <div>
-              <Form onSubmit={this.getData} />
+              <Form {...this.state.data} onSubmit={this.getData} />
             </div>
           ) : null}
         </div>
