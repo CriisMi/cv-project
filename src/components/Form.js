@@ -11,26 +11,11 @@ class Form extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleChangeSkill = this.handleChangeSkill.bind(this);
   }
 
   handleChange = (e) => {
     const value = e.target.value;
     this.setState({ [e.target.name]: value });
-    e.target.placeholder = value;
-  };
-
-  handleChangeSkill = (index, e) => {
-    const value = e.target.value;
-    const nowSkills = this.state.skills;
-    const nextSkills = nowSkills.map((skill, i) => {
-      if (index === i) {
-        return value;
-      } else {
-        return skill;
-      }
-    });
-    this.setState({ skills: nextSkills });
     e.target.placeholder = value;
   };
 
@@ -40,15 +25,6 @@ class Form extends Component {
   };
 
   render() {
-    const skillsList = this.props.skills.map((skill, index) => (
-      <input
-        type="text"
-        name="skills"
-        key={skill}
-        placeholder={skill}
-        onChange={(e) => this.handleChangeSkill(index, e)}
-      />
-    ));
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -96,10 +72,6 @@ class Form extends Component {
               placeholder={this.props.social}
               onChange={this.handleChange}
             />
-          </label>
-          <label>
-            Skills:
-            {skillsList}
           </label>
           <button type="submit" onClick={this.submitInfo}>
             Submit
