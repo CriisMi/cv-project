@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "../styles/Form.css";
+import Education from "./Education";
 
 class Form extends Component {
   constructor(props) {

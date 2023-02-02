@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "./App.css";
+import Education from "./components/Education";
 import Form from "./components/Form";
 import Sidebar from "./components/Sidebar";
 
@@ -47,6 +48,7 @@ class App extends Component {
           {this.state.current.editing ? (
             <div>
               <Form {...this.state.data} onSubmit={this.getData} />
+              <Education />
             </div>
           ) : null}
         </div>
