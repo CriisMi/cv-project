@@ -1,61 +1,35 @@
-import { Component } from "react";
+import { useState } from "react";
 import "./App.css";
-import Education from "./components/Education";
 import Form from "./components/Form";
 import Sidebar from "./components/Sidebar";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      current: {
-        editing: 1,
-        submitted: 0,
-      },
-      data: {
-        name: "Mary Smith",
-        occupation: "Architect",
-        phone: "+123456789",
-        mail: "mary@smith.com",
-        social: "linkedin.com/marysmith",
-      },
-    };
+const App = () => {
+  const [editing, setEditing] = useState(true);
+  const [personalInfo, setPersonalInfo] = useState({
+    name: "Sarah Smith",
+    occupation: "singer",
+    phone: 4023,
+    mail: "sarahsmith@email.com",
+    social: "https://github.com/",
+  });
 
-    this.editInfo = this.editInfo.bind(this);
-    this.getData = this.getData.bind(this);
-  }
-
-  editInfo() {
-    this.setState({
-      current: { editing: 1, submitted: 0 },
-    });
-  }
-
-  getData = (data) => {
-    this.setState({
-      current: { editing: 0, submitted: 1 },
-      data: data,
-    });
+  const toggleEditing = () => {
+    setEditing(!editing);
   };
 
-  render() {
-    return (
-      <div className="body">
-        <div className="form">
-          {this.state.current.submitted ? (
-            <button onClick={this.editInfo}>Edit</button>
-          ) : null}
-          {this.state.current.editing ? (
-            <div>
-              <Form {...this.state.data} onSubmit={this.getData} />
-              <Education />
-            </div>
-          ) : null}
-        </div>
-        <Sidebar {...this.state.data} />
+  return (
+    <div className="body">
+      {!editing ? <button onClick={toggleEditing}>Edit</button> : null}
+      <div className={`form ${editing}`}>
+        <Form
+          toggleEditing={toggleEditing}
+          personalInfo={personalInfo}
+          setPersonalInfo={setPersonalInfo}
+        />
       </div>
-    );
-  }
-}
+      <Sidebar personalInfo={personalInfo} />
+    </div>
+  );
+};
 
 export default App;
