@@ -13,6 +13,25 @@ const App = () => {
     social: "https://github.com/",
   });
 
+  const [education, setEducation] = useState([
+    {
+      id: "e1",
+      startYear: 2012,
+      endYear: 2018,
+      title: "UniTN",
+      description: "",
+      index: 0,
+    },
+    {
+      id: "e2",
+      startYear: 2032,
+      endYear: 2045,
+      title: "Uni",
+      description: "",
+      index: 1,
+    },
+  ]);
+
   const toggleEditing = () => {
     setEditing(!editing);
   };
@@ -25,6 +44,8 @@ const App = () => {
           toggleEditing={toggleEditing}
           personalInfo={personalInfo}
           setPersonalInfo={setPersonalInfo}
+          education={education}
+          setEducation={setEducation}
         />
       </div>
       <Sidebar personalInfo={personalInfo} />

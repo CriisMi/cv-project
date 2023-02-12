@@ -1,7 +1,11 @@
 import "../styles/Form.css";
+import FormEduExp from "./FormEduExp";
+import { useState } from "react";
 
 const Form = (props) => {
   let formInfo = props.personalInfo;
+
+  const [education, setEducation] = useState(props.education);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -13,6 +17,7 @@ const Form = (props) => {
     e.preventDefault();
     props.toggleEditing();
     props.setPersonalInfo(formInfo);
+    props.setEducation(education);
   };
 
   return (
@@ -63,6 +68,7 @@ const Form = (props) => {
             onChange={handleChange}
           />
         </label>
+        <FormEduExp education={education} setEducation={setEducation} />
         <button onClick={handleSubmit}>Submit</button>
       </form>
     </div>
