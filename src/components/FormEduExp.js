@@ -2,36 +2,57 @@ import { useState } from "react";
 import Field from "./FieldEduExp";
 
 const FormEduExp = (props) => {
-  const [education, setEducation] = useState(props.education);
+  const [id, setId] = useState(`e2`);
 
-  /* const onAddBtnClick = (e) => {
+  let defaultEdu = {
+    startYear: 2012,
+    endYear: 2018,
+    title: "UniTN",
+    description: "",
+    index: 0,
+  };
+
+  let educationList = props.education;
+
+  const onAddBtnClick = (e) => {
     e.preventDefault();
-    setInputList(inputList.concat(<Field key={inputList.length} />));
-  }; */
+    setId((prevId) => `e${+prevId[1] + 1}`);
+    defaultEdu.key = id;
+    let newEducation = educationList.concat(defaultEdu);
 
-  const onRemoveBtnClick = (e, id) => {
-    let newEducation = (education) =>
-      education.filter((item) => item.id !== id);
-    setEducation(newEducation);
-    props.setEducation(newEducation);
+    let newnewEducation = newEducation.map((element, i) => {
+      element.index = i;
+      return element;
+    });
+    console.log(id);
+    props.setEducation(newnewEducation);
+  };
+
+  const onRemoveBtnClick = (e, i) => {
+    e.preventDefault();
+    let newEducation = educationList.filter((item) => item.index !== i);
+    let newnewEducation = newEducation.map((element, i) => {
+      element.index = i;
+      return element;
+    });
+    props.setEducation(newnewEducation);
   };
 
   return (
     <div>
       <ul>
-        {education.map((field, i) => (
+        {educationList.map((field, i) => (
           <Field
+            field={props.education[i]}
             index={i}
-            key={field.id}
-            id={field.id}
-            startYear={field.startYear}
-            endYear={field.endYear}
-            title={field.title}
-            description={field.description}
+            key={props.education[i].key}
             onRemoveBtnClick={onRemoveBtnClick}
+            education={props.education}
+            setEducation={props.setEducation}
           />
         ))}
       </ul>
+      <button onClick={onAddBtnClick}>Add</button>
     </div>
   );
 };

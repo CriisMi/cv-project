@@ -15,25 +15,17 @@ const App = () => {
 
   const [education, setEducation] = useState([
     {
-      id: "e1",
       startYear: 2012,
       endYear: 2018,
       title: "UniTN",
       description: "",
       index: 0,
-    },
-    {
-      id: "e2",
-      startYear: 2032,
-      endYear: 2045,
-      title: "Uni",
-      description: "",
-      index: 1,
+      key: `e1`,
     },
   ]);
 
   const toggleEditing = () => {
-    setEditing(!editing);
+    setEditing((prevEditing) => !prevEditing);
   };
 
   return (
