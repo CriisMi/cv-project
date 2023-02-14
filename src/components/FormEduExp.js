@@ -2,7 +2,8 @@ import { useState } from "react";
 import Field from "./FieldEduExp";
 
 const FormEduExp = (props) => {
-  const [id, setId] = useState(`e2`);
+  let educationList = props.education;
+  const [id, setId] = useState(`${educationList[0].key[0]}2`);
 
   let defaultEdu = {
     startYear: 2012,
@@ -12,19 +13,15 @@ const FormEduExp = (props) => {
     index: 0,
   };
 
-  let educationList = props.education;
-
   const onAddBtnClick = (e) => {
     e.preventDefault();
-    setId((prevId) => `e${+prevId[1] + 1}`);
+    setId((prevId) => `${prevId[0]}${+prevId[1] + 1}`);
     defaultEdu.key = id;
     let newEducation = educationList.concat(defaultEdu);
-
     let newnewEducation = newEducation.map((element, i) => {
       element.index = i;
       return element;
     });
-    console.log(id);
     props.setEducation(newnewEducation);
   };
 

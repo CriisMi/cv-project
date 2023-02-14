@@ -24,6 +24,17 @@ const App = () => {
     },
   ]);
 
+  const [experience, setExperience] = useState([
+    {
+      startYear: 2019,
+      endYear: 2022,
+      title: "Microsoft",
+      description: "",
+      index: 0,
+      key: `i1`,
+    },
+  ]);
+
   const toggleEditing = () => {
     setEditing((prevEditing) => !prevEditing);
   };
@@ -38,6 +49,8 @@ const App = () => {
           setPersonalInfo={setPersonalInfo}
           education={education}
           setEducation={setEducation}
+          experience={experience}
+          setExperience={setExperience}
         />
       </div>
       <Sidebar personalInfo={personalInfo} />

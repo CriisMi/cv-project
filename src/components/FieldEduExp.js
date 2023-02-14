@@ -1,6 +1,5 @@
 const Field = (props) => {
   let educationList = props.education;
-  let field = educationList[props.index];
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -13,25 +12,25 @@ const Field = (props) => {
       <input
         type="number"
         name="startYear"
-        placeholder={field.startYear}
+        placeholder="Start year"
         onChange={handleChange}
       />
       <input
         type="number"
         name="endYear"
-        placeholder={field.endYear}
+        placeholder="End year"
         onChange={handleChange}
       />
       <input
         type="text"
         name="title"
-        placeholder={field.title}
+        placeholder="Title"
         onChange={handleChange}
       />
       <input
         type="textarea"
         name="description"
-        placeholder={field.description}
+        placeholder="Description"
         onChange={handleChange}
       />
       <button

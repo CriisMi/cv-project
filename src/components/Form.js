@@ -11,13 +11,20 @@ const Form = (props) => {
   return (
     <div>
       <form>
+        PersonalInfo:
         <FormPersInfo
           personalInfo={props.personalInfo}
           setPersonalInfo={props.setPersonalInfo}
         />
+        Education:
         <FormEduExp
           education={props.education}
           setEducation={props.setEducation}
+        />
+        Experience:
+        <FormEduExp
+          education={props.experience}
+          setEducation={props.setExperience}
         />
         <button onClick={handleSubmit}>Submit</button>
       </form>
