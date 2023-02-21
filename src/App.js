@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import Sidebar from "./components/Sidebar";
+import Body from "./components/Body";
 
 const App = () => {
   const [editing, setEditing] = useState(true);
@@ -54,6 +55,7 @@ const App = () => {
         />
       </div>
       <Sidebar personalInfo={personalInfo} />
+      <Body education={education} experience={experience} />
     </div>
   );
 };
