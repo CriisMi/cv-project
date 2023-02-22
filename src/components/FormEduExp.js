@@ -3,7 +3,8 @@ import Field from "./FieldEduExp";
 
 const FormEduExp = (props) => {
   let educationList = props.education;
-  const [id, setId] = useState(`${educationList[0].key[0]}2`);
+
+  const [id, setId] = useState(`${props.id}2`);
 
   let defaultEdu = {
     startYear: 2012,

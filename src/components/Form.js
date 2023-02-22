@@ -20,11 +20,13 @@ const Form = (props) => {
         <FormEduExp
           education={props.education}
           setEducation={props.setEducation}
+          id={"e"}
         />
         Experience:
         <FormEduExp
           education={props.experience}
           setEducation={props.setExperience}
+          id={"i"}
         />
         <button onClick={handleSubmit}>Submit</button>
       </form>
