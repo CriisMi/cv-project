@@ -1,3 +1,8 @@
+@import "./styles/variables.css";
 body {
-  margin: 0;
+  margin: 50px 0;
+
+  background-color: var(--light);
+  display: flex;
+  justify-content: center;
 }

@@ -8,7 +8,7 @@ const Field = (props) => {
   };
 
   return (
-    <div>
+    <div className="edu-exp-field">
       <input
         type="number"
         name="startYear"

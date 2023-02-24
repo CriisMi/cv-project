@@ -11,24 +11,26 @@ const Form = (props) => {
   return (
     <div>
       <form>
-        PersonalInfo:
+        <div className="header">PersonalInfo</div>
         <FormPersInfo
           personalInfo={props.personalInfo}
           setPersonalInfo={props.setPersonalInfo}
         />
-        Education:
+        <div className="header">Education</div>
         <FormEduExp
           education={props.education}
           setEducation={props.setEducation}
           id={"e"}
         />
-        Experience:
+        <div className="header">Experience</div>
         <FormEduExp
           education={props.experience}
           setEducation={props.setExperience}
           id={"i"}
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <button className="submit" onClick={handleSubmit}>
+          SUBMIT
+        </button>
       </form>
     </div>
   );

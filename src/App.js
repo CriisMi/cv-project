@@ -3,12 +3,13 @@ import "./App.css";
 import Form from "./components/Form";
 import Sidebar from "./components/Sidebar";
 import Body from "./components/Body";
+import Title from "./components/Title";
 
 const App = () => {
   const [editing, setEditing] = useState(true);
   const [personalInfo, setPersonalInfo] = useState({
     name: "Sarah Smith",
-    occupation: "singer",
+    occupation: "Singer",
     phone: 4023,
     mail: "sarahsmith@email.com",
     social: "https://github.com/",
@@ -18,8 +19,9 @@ const App = () => {
     {
       startYear: 2012,
       endYear: 2018,
-      title: "UniTN",
-      description: "",
+      title: "my Uni",
+      description:
+        "Cras malesuada, erat eu porta volutpat, dolor risus lobortis erat, id lacinia nisl risus in eros. Aliquam vestibulum metus elit, nec posuere dui egestas ac. Proin molestie accumsan fermentum. ",
       index: 0,
       key: `e1`,
     },
@@ -30,7 +32,8 @@ const App = () => {
       startYear: 2019,
       endYear: 2022,
       title: "Microsoft",
-      description: "",
+      description:
+        "In et molestie felis. Maecenas tempor orci nisi, vel commodo turpis faucibus mattis. Praesent viverra libero pharetra arcu semper blandit. ",
       index: 0,
       key: `i1`,
     },
@@ -42,7 +45,11 @@ const App = () => {
 
   return (
     <div className="body">
-      {!editing ? <button onClick={toggleEditing}>Edit</button> : null}
+      {!editing ? (
+        <button className="edit" onClick={toggleEditing}>
+          EDIT
+        </button>
+      ) : null}
       <div className={`form ${editing}`}>
         <Form
           toggleEditing={toggleEditing}
@@ -54,8 +61,13 @@ const App = () => {
           setExperience={setExperience}
         />
       </div>
-      <Sidebar personalInfo={personalInfo} />
-      <Body education={education} experience={experience} />
+
+      <div className="cv">
+        <div className="photo" />
+        <Title name={personalInfo.name} occupation={personalInfo.occupation} />
+        <Sidebar personalInfo={personalInfo} />
+        <Body education={education} experience={experience} />
+      </div>
     </div>
   );
 };

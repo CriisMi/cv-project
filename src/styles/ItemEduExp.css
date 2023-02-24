@@ -1,0 +1,19 @@
+@import "variables.css";
+
+.item {
+  display: flex;
+  margin: 10px 0;
+}
+
+.years {
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.edu-exp-title {
+  font-weight: bold;
+}
+
+.description {
+  color: var(--dark-grey);
+}

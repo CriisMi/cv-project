@@ -1,0 +1,9 @@
+.name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.occupation {
+  font-size: 18px;
+  color: var(--dark-grey);
+}

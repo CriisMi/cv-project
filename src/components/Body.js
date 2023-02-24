@@ -4,11 +4,11 @@ const Body = (props) => {
   return (
     <div>
       <div>
-        EDUCATION
+        <div className="header">EDUCATION</div>
         <BodyEduExp items={props.education} />
       </div>
       <div>
-        EXPERIENCE
+        <div className="header">EXPERIENCE</div>
         <BodyEduExp items={props.experience} />
       </div>
     </div>

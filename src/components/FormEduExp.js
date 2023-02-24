@@ -9,7 +9,7 @@ const FormEduExp = (props) => {
   let defaultEdu = {
     startYear: 2012,
     endYear: 2018,
-    title: "UniTN",
+    title: "my Uni",
     description: "",
     index: 0,
   };
